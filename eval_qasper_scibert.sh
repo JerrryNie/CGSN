@@ -1,0 +1,18 @@
+export CUDA_VISIBLE_DEVICES=$1
+python main.py \
+	--my_config ./config.json \
+	--model_name_or_path allenai/scibert_scivocab_uncased \
+	--train_pattern ./data/Qasper/qasper-train-v0.2.json \
+	--feature_path ./data/Qasper \
+	--test_pattern ./data/Qasper/qasper-test-v0.2.json \
+	--output_dir ./output-scibert-qasper/epoch-2 \
+	--do_predict --train_batch_size 1 --predict_batch_size 1 \
+	--learning_rate 1e-5 --warmup_proportion 0.1 --num_train_epochs 8 \
+	--weight_decay 0.01 \
+	--save_epochs 1 \
+	--prefix test \
+	--num_hidden_layers 1 \
+	--neighborhops 4 \
+	--meta_gat_hops 1 \
+	--max_epochs 4 \
+	--requires_grad 5,6,7,8,9,10,11,pooler

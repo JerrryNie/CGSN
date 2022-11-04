@@ -1,0 +1,6 @@
+/data
+/output*
+*.zip
+/run*
+/qasper-led-baseline/output*
+/__pycache__
